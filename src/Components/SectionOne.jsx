@@ -1,20 +1,22 @@
 // import React from 'react';
 import img1 from "../assets/home/chef-service.jpg";
-import img2 from "../assets/home/Group 16.jpg";
-import img3 from "../assets/home/Group 26.jpg";
+// import img2 from "../assets/home/Group 16.jpg";
+// import img3 from "../assets/home/Group 26.jpg";
+import img4 from "../assets/home/Contact.png";
+import img from "../assets//home/Group 27.png";
+import img5 from "../assets/home/Section-img.png";
+// import { MdOutlinePhoneForwarded } from "react-icons/md";
 
 const SectionOne = () => {
   return (
     <div className="mb-20">
       <div>
         {" "}
-        <img src={img1} alt="" />
+        <img src={img5} alt="" />
       </div>
-      <div>
-        <img className="ml-20  -mt-96 " src={img2} alt="" />
-      </div>
+      <div>{/* <img className="ml-20  -mt-96 " src={img} alt="" /> */}</div>
       <div className="mt-24">
-        <img src={img3} alt="" />
+        <img src={img} alt="" />
       </div>
       {/* extra section-2-start */}
       <div className="bg-gray-100 p-4 sm:p-8 md:p-16 mt-20">
@@ -22,7 +24,7 @@ const SectionOne = () => {
           <div className=" grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
               href="/frontend-performance"
-              className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
+              className=" flex flex-1 h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
             >
               <img src={img1} className="h-20 w-20 rounded-full" alt="" />
               <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
@@ -35,7 +37,7 @@ const SectionOne = () => {
             </a>
             <a
               href="/api-security"
-              className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
+              className=" flex flex-1  h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
             >
               <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
                 API Security
@@ -46,7 +48,7 @@ const SectionOne = () => {
             </a>
             <a
               href="/code-review"
-              className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
+              className="flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
             >
               <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
                 Code Reviews
@@ -58,7 +60,7 @@ const SectionOne = () => {
             </a>
             <a
               href="/aws"
-              className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
+              className="flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5"
             >
               <span className="text-md mb-0 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-xl">
                 AWS
@@ -69,6 +71,10 @@ const SectionOne = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div className="mt-10 flex items-center justify-center mb-36">
+        {" "}
+        <img src={img4} alt="" />
       </div>
       {/* // extra section-2-end  */}
     </div>
