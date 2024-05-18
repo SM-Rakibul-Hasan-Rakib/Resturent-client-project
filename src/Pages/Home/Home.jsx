@@ -5,6 +5,7 @@ import Banner from "../Banner/Banner";
 import Category from "./Category/Category";
 import Featured from "./Featured/Featured";
 import PopularMenu from "./Popular/PopularMenu";
+import Review from "./Review/Review";
 // import Textone from "../../Components/Textone";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <SectionOne></SectionOne>
       <PopularMenu></PopularMenu>
       <Featured></Featured>
+      <Review></Review>
     </div>
   );
 };
