@@ -3,7 +3,7 @@ import img1 from "../assets/home/chef-service.jpg";
 // import img2 from "../assets/home/Group 16.jpg";
 // import img3 from "../assets/home/Group 26.jpg";
 import img4 from "../assets/home/Contact.png";
-import img from "../assets//home/Group 27.png";
+// import img from "../assets//home/Group 27.png";
 import img5 from "../assets/home/Section-img.png";
 // import { MdOutlinePhoneForwarded } from "react-icons/md";
 
@@ -14,10 +14,7 @@ const SectionOne = () => {
         {" "}
         <img src={img5} alt="" />
       </div>
-      <div>{/* <img className="ml-20  -mt-96 " src={img} alt="" /> */}</div>
-      <div className="mt-24">
-        <img src={img} alt="" />
-      </div>
+
       {/* extra section-2-start */}
       <div className="bg-gray-100 p-4 sm:p-8 md:p-16 mt-20">
         <div className="container mx-auto">

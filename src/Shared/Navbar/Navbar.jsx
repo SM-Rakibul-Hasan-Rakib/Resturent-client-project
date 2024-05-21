@@ -1,20 +1,20 @@
 // import React from "react";
 
+import { GoCommandPalette } from "react-icons/go";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navLink = (
     <>
-      <li></li>
       <li>
-        <a>Item 3</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a>Item 3</a>
+        <Link to="/menu">
+          Menu <GoCommandPalette></GoCommandPalette>{" "}
+        </Link>
       </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+
       <li>
         <a>Item 3</a>
       </li>

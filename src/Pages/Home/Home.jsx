@@ -1,5 +1,6 @@
 // import React from "react";
 
+import { Helmet } from "react-helmet-async";
 import SectionOne from "../../Components/SectionOne";
 import Banner from "../Banner/Banner";
 import Category from "./Category/Category";
@@ -11,6 +12,9 @@ import Review from "./Review/Review";
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss | Menu </title>
+      </Helmet>
       <Banner></Banner>
       {/* <Textone></Textone> */}
       <Category></Category>
