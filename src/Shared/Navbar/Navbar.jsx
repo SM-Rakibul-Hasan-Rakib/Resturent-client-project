@@ -9,14 +9,14 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
+
       <li>
         <Link to="/menu">
           Menu <GoCommandPalette></GoCommandPalette>{" "}
         </Link>
       </li>
-
       <li>
-        <a>Item 3</a>
+        <Link to="/order">Order</Link>
       </li>
     </>
   );
