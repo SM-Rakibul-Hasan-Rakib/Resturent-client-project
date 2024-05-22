@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import menuImg from "../../assets/menu/Rectangle 1.png";
 import imgs from "../../assets/menu/dessert-bg.jpeg";
+import drienkd from "../../assets/menu/pexels-kowalievska-1187766.jpg";
 import pizzaImg from "../../assets/menu/pizza-bg.jpg";
 import saladImg from "../../assets/menu/salad-bg.jpg";
 import soupImg from "../../assets/menu/soup-bg.jpg";
@@ -17,6 +18,7 @@ const Menu = () => {
   const salad = menu.filter((item) => item.category === "salad");
   const pizza = menu.filter((item) => item.category === "pizza");
   const offered = menu.filter((item) => item.category === "offered");
+  const drinks = menu.filter((item) => item.category === "drinks");
   return (
     <div>
       <Helmet>
@@ -42,6 +44,7 @@ const Menu = () => {
       <MenuCategory items={salad} title={salad} img={saladImg}></MenuCategory>
       <h1>soup</h1>
       <MenuCategory items={soup} title={soup} img={soupImg}></MenuCategory>
+      <MenuCategory items={drinks} title={drinks} img={drienkd}></MenuCategory>
     </div>
   );
 };
