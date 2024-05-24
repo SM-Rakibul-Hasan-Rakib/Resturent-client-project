@@ -11,8 +11,13 @@ import useMenu from "../../hooks/useMenu";
 import FoodCard from "../../Components/FoodCard";
 import OrderTab from "./OrderTab";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Orider = () => {
+  <Helmet>
+    <title>Bistro Boss | Menu </title>
+  </Helmet>;
+
   const category = useParams();
   const categories = ["salad", "pizza", "dessert", "drinks"];
   const initialIndex = categories.indexOf(category);

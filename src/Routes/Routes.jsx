@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import Menu from "../Pages/Menu/Menu";
 import Orider from "../Pages/order/Orider";
+import Login from "../Pages/Login";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/order",
         element: <Orider></Orider>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },
