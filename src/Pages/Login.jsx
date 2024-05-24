@@ -20,14 +20,13 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
   };
-  const validateCatch = () => {
+  const handleValidateCaptcha = () => {
     const value = captchRef.current.value;
     if (validateCaptcha(value)) {
       setDisabled(false);
-    } else {
-      setDisabled(true);
     }
   };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col md:flex-row-reverse">
@@ -83,7 +82,7 @@ const Login = () => {
                 required
               />
               <button
-                onClick={validateCatch}
+                onClick={handleValidateCaptcha}
                 className="btn btn-outline btn-xs mt-2"
               >
                 Validated
