@@ -2,12 +2,15 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { reset } from "nodemon";
+import Swal from "sweetalert2";
 
 // import React from 'react';
 
 const SignUp = () => {
-  const { createuser } = useContext(AuthContext);
+  const { createuser, updateUserProfaile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -21,6 +24,20 @@ const SignUp = () => {
     createuser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+      updateUserProfaile(data.name, data.PhotoUrl)
+        .then(() => {
+          console.log("user profile info updated");
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User Created Successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
     });
   };
 
@@ -63,20 +80,20 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text">PhotoUrl</span>
                 </label>
                 <input
                   defaultValue="test"
-                  {...register("name", { required: true })}
-                  type="name"
-                  name="name"
-                  placeholder="Type your name"
+                  {...register("PhotoUrl", { required: true })}
+                  type="text"
+                  name="PhotoUrl"
+                  placeholder="Type PhotoUrl"
                   className="input input-bordered"
                   required
                 />
-                {errors.name && (
+                {errors.PhotoUrl && (
                   <span className="font-bold text-red-600">
-                    Name field is required
+                    PhotoUrl is required
                   </span>
                 )}
               </div>

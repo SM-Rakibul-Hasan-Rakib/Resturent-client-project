@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { app } from "../firabase/FirebaseConfig";
+import { updateProfile } from "firebase/auth/cordova";
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
@@ -20,6 +21,13 @@ const AuthProvider = ({ children }) => {
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const updateUserProfaile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      PhotoUrl: photo,
+    });
   };
 
   const logOut = () => {
@@ -39,6 +47,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    updateUserProfaile,
     loading,
     createuser,
     signIn,
