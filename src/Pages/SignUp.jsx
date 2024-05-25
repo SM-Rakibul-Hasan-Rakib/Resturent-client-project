@@ -63,6 +63,25 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  defaultValue="test"
+                  {...register("name", { required: true })}
+                  type="name"
+                  name="name"
+                  placeholder="Type your name"
+                  className="input input-bordered"
+                  required
+                />
+                {errors.name && (
+                  <span className="font-bold text-red-600">
+                    Name field is required
+                  </span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
@@ -95,19 +114,7 @@ const SignUp = () => {
                   className="input input-bordered"
                   required
                 />
-                {/* <input
-             
-                {...register("password", {   defaultValue="test",
-                  // required: true,
-                  minLength: 6,
-                  maxLength: 20,
-                  pattern:/^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}$/
-                })}
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              /> */}
+
                 {errors.password?.type === "minLength" && (
                   <p className="text-red-600 font-sans font-bold">
                     Password must be 6 characters is required

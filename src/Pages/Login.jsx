@@ -6,13 +6,17 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   // const captchRef = useRef(null);
+
   const [disabled, setDisabled] = useState(true);
 
   const { signIn } = useContext(AuthContext);
@@ -29,14 +33,15 @@ const Login = () => {
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
-      navigate("/");
+      // navigate("/");
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Your work has been saved",
+        title: "Your login Success!",
         showConfirmButton: false,
         timer: 1500,
       });
+      navigate(from, { replace: true });
     });
   };
   const handleValidateCaptcha = (e) => {
