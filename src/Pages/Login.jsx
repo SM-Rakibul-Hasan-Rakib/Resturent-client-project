@@ -18,7 +18,7 @@ const Login = () => {
   // const captchRef = useRef(null);
 
   const [disabled, setDisabled] = useState(true);
-
+  console.log("state in the location login in page", location.state);
   const { signIn } = useContext(AuthContext);
 
   useEffect(() => {
@@ -112,13 +112,11 @@ const Login = () => {
                   className="input input-bordered"
                   required
                 />
-                {/* <button className="btn btn-outline btn-xs mt-2">
-                  Validated
-                </button> */}
               </div>
               <div className="form-control mt-6">
                 {/* <button className="btn btn-primary">Login</button> */}
                 <input
+                  // {TODO : apply disabled for re captcha}
                   disabled={disabled}
                   className="btn btn-primary"
                   type="submit"

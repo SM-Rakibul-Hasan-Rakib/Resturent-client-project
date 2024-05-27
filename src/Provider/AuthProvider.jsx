@@ -3,17 +3,19 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithPopup,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 import { app } from "../firabase/FirebaseConfig";
-import { updateProfile } from "firebase/auth/cordova";
+import { GoogleAuthProvider, updateProfile } from "firebase/auth/cordova";
+// import { signInWithPopup } from "firebase/auth/web-extension";
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const googleProvider = new GoogleAuthProvider();
   const createuser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -28,6 +30,10 @@ const AuthProvider = ({ children }) => {
       displayName: name,
       PhotoUrl: photo,
     });
+  };
+  const signInWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const logOut = () => {
@@ -49,6 +55,7 @@ const AuthProvider = ({ children }) => {
     user,
     updateUserProfaile,
     loading,
+    signInWithGoogle,
     createuser,
     signIn,
     logOut,
