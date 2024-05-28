@@ -1,8 +1,10 @@
 // import React from 'react';
-import axios from "axios";
-import Swal from "sweetalert2";
+// import axios from "axios";
+// import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxious from "../hooks/useAxious";
+import Swal from "sweetalert2";
 // import { Axios } from "axios";
 
 const FoodCard = ({ item }) => {
@@ -10,6 +12,7 @@ const FoodCard = ({ item }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const axiousSecoure = useAxious();
   const handleAddToFoodCart = (food) => {
     if (user && user.email) {
       console.log(user.email, food);
@@ -18,9 +21,20 @@ const FoodCard = ({ item }) => {
         email: user.email,
         name,
       };
-      axios.post("http://localhost:5000/carts", cartItem).then((res) => {
-        console.log(res.data);
-      });
+      axiousSecoure
+        .post("http://localhost:5000/carts", cartItem)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${name}added to your cart`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
       // TODO: send cart item to the database
     } else {
       Swal.fire({
