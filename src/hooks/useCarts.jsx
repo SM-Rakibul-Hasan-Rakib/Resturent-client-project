@@ -1,20 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxious from "./useAxious";
-
+import useAuth from "./useAuth";
 // import useAxious from "./useAxious";
-
-const axiousSecoure = useAxious();
 
 const useCarts = () => {
   // tan stack query
-  const { data: cart = [] } = useQuery({
-    queryKey: ["cart"],
+  const axiousSecoure = useAxious();
+  const { user } = useAuth();
+  const { refetch, data: cart = [] } = useQuery({
+    queryKey: ["cart", user?.email],
     queryFn: async () => {
-      const res = await axiousSecoure.get("/carts");
+      const res = await axiousSecoure.get(`/carts?email=${user?.email}`);
+      console.log(res.data);
+
       return res.data;
     },
   });
-  return [cart];
+  return [cart, refetch];
 };
 
 export default useCarts;

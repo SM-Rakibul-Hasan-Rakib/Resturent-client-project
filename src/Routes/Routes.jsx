@@ -5,8 +5,11 @@ import Menu from "../Pages/Menu/Menu";
 import Orider from "../Pages/order/Orider";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+
 import Private from "./Private";
 import Secret from "../Components/Secret";
+import Dashboard from "../Layout/Dashboard";
+import Cart from "../Pages/Dashboard/card/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +43,16 @@ export const router = createBrowserRouter([
             <Secret></Secret>
           </Private>
         ),
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "cart",
+        element: <Cart></Cart>,
       },
     ],
   },
