@@ -1,10 +1,13 @@
-// import { Link } from "react-router-dom";
-import useCarts from "../../../hooks/useCarts";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+// import useMenu from "../../../hooks/useMenu";
+import useAxious from "../../../hooks/useAxious";
+import useCarts from "../../../hooks/useCarts";
 
 const Cart = () => {
-  const [cart] = useCarts();
+  // const [cart] = useCarts();
+  const [cart, refetch] = useCarts();
+  const axiousSecoure = useAxious();
 
   const totalprice = cart.reduce((total, item) => total + item.price, 0);
 
@@ -28,10 +31,15 @@ const Cart = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success",
+          refetch();
+          axiousSecoure.delete(`carts/${id}`).then((res) => {
+            if (res.data.deleteCount > 0) {
+              swalWithBootstrapButtons.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
           });
         } else if (
           /* Read more about handling dismissals below */
@@ -47,9 +55,9 @@ const Cart = () => {
   };
   return (
     <div>
-      <div className="flex gap-5 my-5 items-center justify-center text-center">
+      <div className="flex gap-5 my-5 justify-evenly text-center">
         <h2 className="text-3xl">Items {cart.length}</h2>
-        <h2 className="text-3xl">Total price : {totalprice}</h2>
+        <h2 className="text-3xl">Total price :$ {totalprice}</h2>
         <button className="btn btn-primary">pay</button>
       </div>
       {/* table */}

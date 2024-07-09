@@ -16,13 +16,16 @@ const FoodCard = ({ item }) => {
   const axiousSecoure = useAxious();
   const [, refetch] = useCarts();
 
-  const handleAddToFoodCart = () => {
+  const handleAddToFoodCart = (item) => {
     if (user && user.email) {
       // console.log(user.email, food);
+      const { name, image, price, recipe, _id } = item;
       const cartItem = {
         menuId: _id,
         email: user.email,
         name,
+        image,
+        price,
       };
       axiousSecoure
         .post("http://localhost:5000/carts", cartItem)
@@ -70,7 +73,7 @@ const FoodCard = ({ item }) => {
           <p className="font-bold text-orange-500">{price}$</p>
           <div className="card-actions Ptjustify-center my-3">
             <button
-              onClick={handleAddToFoodCart}
+              onClick={() => handleAddToFoodCart(item)}
               className="btn btn-outline bg-slate-100 border-orange-400 border-0 border-b-4"
             >
               Add to Cart

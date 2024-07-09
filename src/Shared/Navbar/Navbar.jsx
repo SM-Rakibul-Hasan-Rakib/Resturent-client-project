@@ -97,7 +97,16 @@ const Navbar = () => {
           <ul className=" text-white menu menu-horizontal px-1 ">{navLink}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user && (
+            <div
+              data-tip={user.displayName}
+              className="tooltip tooltip-bottom avatar"
+            >
+              <div className="w-14 mr-2 rounded-full ring ring-primary ring-offset-bam run devse-100 ring-offset-2">
+                <img src={user && user.photoURL}></img>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

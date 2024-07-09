@@ -7,11 +7,13 @@ import Category from "./Category/Category";
 import Featured from "./Featured/Featured";
 import PopularMenu from "./Popular/PopularMenu";
 import Review from "./Review/Review";
+// import Navbartwo from "../../Shared/Navbar/Navbartwo";
 // import Textone from "../../Components/Textone";
 
 const Home = () => {
   return (
     <div>
+      {/* <Navbartwo></Navbartwo> */}
       <Helmet>
         <title>Bistro Boss | Menu </title>
       </Helmet>
